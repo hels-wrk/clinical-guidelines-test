@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('guidelines', function (Blueprint $table) {
             $table->id();
+            $table->string('groupName');
+            $table->string('subject');
             $table->timestamps();
         });
     }

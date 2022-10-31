@@ -34,16 +34,19 @@
         <div class="bg-light border rounded-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Select all</a>
+                    <a class="nav-link active" aria-current="page" href="/">Select all</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Musculoskeletal System</a>
+                    <a class="nav-link" href="/sort/Musculoskeletal System">Musculoskeletal System</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Respiratory System</a>
+                    <a class="nav-link" href="/sort/Respiratory">Respiratory</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Digestive System</a>
+                    <a class="nav-link" href="/sort/Respiratory System">Respiratory System</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sort/Digestive System">Digestive System</a>
                 </li>
             </ul>
         </div>
@@ -71,39 +74,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Musculoskeletal System</td>
-                    <td>Early-onset scoliosis: a narrative review</td>
-                    <td>
-                        <div class="d-grid gap-2 d-md-block">
-                            <button type="button" class="btn btn-primary btn-sm">Open</button>
-                            <button type="button" class="btn btn-secondary btn-sm">Share</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Respiratory System</td>
-                    <td>Vitamin, Mineral, and Multivitamin Supplementation to Prevent Cardiovascular Disease and Cancer</td>
-                   <td>
-                        <div class="d-grid gap-2 d-md-block">
-                            <button type="button" class="btn btn-primary btn-sm">Open</button>
-                            <button type="button" class="btn btn-secondary btn-sm">Share</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Digestive System</td>
-                    <td>Acne, the Skin Microbiome, and Antibiotic Treatment</td>
-                   <td>
-                        <div class="d-grid gap-2 d-md-block">
-                            <button type="button" class="btn btn-primary btn-sm">Open</button>
-                            <button type="button" class="btn btn-secondary btn-sm">Share</button>
-                        </div>
-                    </td>
-                </tr>
+                @foreach ($guidelines as $guideline)
+                    <tr>
+                        <th scope="row">{{ $guideline->id }}</th>
+                        <td>{{ $guideline->groupName }}</td>
+                        <td>{{ $guideline->subject }}</td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-block">
+                                <button type="button" class="btn btn-primary btn-sm">Open</button>
+                                <button type="button" class="btn btn-secondary btn-sm">Share</button>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
 
