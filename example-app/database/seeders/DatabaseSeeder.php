@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +16,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $i = 1;
+        do {
+            DB::table('guidelines')->insert([
+                'groupName' => 'Respiratory',
+                'subject' => 'Vitamin' . Str::random(10),
+            ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+            DB::table('guidelines')->insert([
+                'groupName' => 'Respiratory System',
+                'subject' => 'Vitamin' . Str::random(10),
+            ]);
+
+            DB::table('guidelines')->insert([
+                'groupName' => 'Musculoskeletal System',
+                'subject' => 'Vitamin' . Str::random(10),
+            ]);
+
+            DB::table('guidelines')->insert([
+                'groupName' => 'Digestive System',
+                'subject' => 'Vitamin' . Str::random(10),
+            ]);
+            $i++;
+        } while ($i < 20);
+
+
     }
 }

@@ -15,7 +15,7 @@ class GuidelinesController extends Controller
      */
     public function index()
     {
-        $guidelines = DB::table('guidelines')->get();
+        $guidelines = DB::table('guidelines')->simplePaginate(10);
 
         return view('index', ['guidelines' => $guidelines]);
     }
@@ -28,7 +28,7 @@ class GuidelinesController extends Controller
      */
     public function show($groupName)
     {
-        $guidelines = DB::table('guidelines')->where('groupName', $groupName)->get();
+        $guidelines = DB::table('guidelines')->where('groupName', $groupName)->simplePaginate(10);
 
         return view('index', ['guidelines' => $guidelines]);
     }
