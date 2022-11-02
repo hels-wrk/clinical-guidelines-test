@@ -1,4 +1,15 @@
 /node_modules
+/.docker
+/.landscape
+/.local
+.aws
+.azure
+.bash_history
+.bash_logout
+.bashrc
+.motd_shown
+.profile
+.sudo_as_admin_successful
 /public/build
 /public/hot
 /public/storage
