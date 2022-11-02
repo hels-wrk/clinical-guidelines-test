@@ -2,6 +2,7 @@
 /.docker
 /.landscape
 /.local
+.gitconfig
 .aws
 .azure
 .bash_history

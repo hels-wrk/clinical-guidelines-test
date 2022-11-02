@@ -81,7 +81,7 @@
                         <td>{{ $guideline->subject }}</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <button type="button" class="btn btn-primary btn-sm">Open</button>
+                                <a href="/newPage/{{ $guideline->id }}" target="_blank" type="button" class="btn btn-primary btn-sm">Open</a>
                                 <button type="button" class="btn btn-secondary btn-sm">Share</button>
                             </div>
                         </td>

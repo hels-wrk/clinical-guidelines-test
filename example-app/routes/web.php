@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/',     [\App\Http\Controllers\GuidelinesController::class, 'index']);
 Route::get('/sort/{groupName}', [\App\Http\Controllers\GuidelinesController::class, 'show']);
+Route::get('/newPage/{id}', [\App\Http\Controllers\GuidelinesController::class, 'showNewPage']);
+Route::get('/savePdf/{id}', [\App\Http\Controllers\GuidelinesController::class, 'savePdf']);
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\guidelines;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class GuidelinesController extends Controller
 {
@@ -31,6 +33,34 @@ class GuidelinesController extends Controller
         $guidelines = DB::table('guidelines')->where('groupName', $groupName)->simplePaginate(10);
 
         return view('index', ['guidelines' => $guidelines]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param \App\Models\guidelines $guidelines
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function showNewPage($id)
+    {
+        $item = DB::table('guidelines')->where('id', $id)->first();
+
+        return view('page', ['item' => $item]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param \App\Models\guidelines $guidelines
+     * @return \Illuminate\Http\Response
+     */
+    public function savePdf($id)
+    {
+        $item = DB::table('guidelines')->where('id', $id)->first();
+        $pdf = Pdf::loadView('page', ['item' => $item]);
+        Storage::put('public/pdf/invoice.pdf', $pdf->output());
+
+        return $pdf->download('invoice.pdf');
     }
 
     /**
